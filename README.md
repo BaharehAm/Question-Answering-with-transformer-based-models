@@ -5,12 +5,12 @@ Due to our limitations in computational power, we fixed the values for learning 
 and used batch size of 16 to be able to run our models.
 Our experiments showed that RoBERTa-base pre-trained model has the best performance in terms of F1 and Exact Match (EM) scores on both
 SQuAD 1.1 and 2.0 while DistillBERT model performs the poorest. 
-Moreover, we examined the effect of training steps and training size on these models’ performance.  
-To study the effect of training size in fine-tuning step on the performance of our models, we used
+
+Moreover, we examined the effect of training steps and training size on these models’ performance. To study the effect of training size in fine-tuning step on the performance of our models, we used
 33%, 66%, and 100% of each dataset. This experiment showed that DistilBERT and BERT models are more sensitive to the fine-tuning data size, especially
 for SQuAD 2.0 dataset. For SQuAD 1.1, reducing the size of the training dataset has a small impact
 in case of RoBERTa model.
-In terms of training steps, we found that fine-tuning these models just for 2 epochs is enough to get our reported performance. 
+In terms of training steps, we found that fine-tuning these models just for 2 epochs is enough to get the highest possible performance (i.e., the lowest F1 score). 
 
 
 ## Experiment results on SQuAD 1.1 and SQuAD 2.0 
