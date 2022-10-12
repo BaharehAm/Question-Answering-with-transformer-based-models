@@ -1,9 +1,17 @@
 This repository contains a modified version of the Huggingface library example for the question answering task. 
 It was a group project for the Deep Learning course offered at HEC Montreal. We we reviewed state-of-the-art transformer models for QA task applied on 
-SQuAD 1.1 and 2.0 datasets. We tested five models, RoBERTa, ALBERT, BERT, XLMRoBERTa, and DistilBERT, and our experiments showed that RoBERTa-base pre-trained model 
-has the best performance in terms of F1 and EM scores. 
-Moreover, we examined the effect of training steps and training size on these models’ performance. 
-We found that fine-tuning these models just for 2 epochs is enough to get our reported performance. 
+SQuAD 1.1 and 2.0 datasets. We evaluated fine-tuning performance of five models, namely RoBERTa, ALBERT, BERT, XLMRoBERTa, and DistilBERT under various settings and hyperparameters.
+Due to our limitations in computational power, we fixed the values for learning rate, weight decay, and other hyperparameters as presented in the original papers
+and used batch size of 16 to be able to run our models.
+Our experiments showed that RoBERTa-base pre-trained model has the best performance in terms of F1 and Exact Match (EM) scores on both
+SQuAD 1.1 and 2.0 while DistillBERT model performs the poorest. 
+Moreover, we examined the effect of training steps and training size on these models’ performance.  
+To study the effect of training size in fine-tuning step1 on the performance of our models, we used
+33%, 66%, and 100% of each dataset. This experiment showed that DistilBERT and BERT models are more sensitive to the fine-tuning data size, especially
+for SQuAD 2.0 dataset. For SQuAD 1.1, reducing the size of the training dataset has a small impact
+on RoBERTa’s performance compared to the other models.
+In terms of training steps, we found that fine-tuning these models just for 2 epochs is enough to get our reported performance. 
+
 
 ## Experiment results on SQuAD 1.1 and SQuAD 2.0 
 ![image](https://user-images.githubusercontent.com/46126394/195227422-18250aa2-f65f-441d-b8a2-842fb56527ff.png)
@@ -25,13 +33,10 @@ SQuAD 2.0
 
 
 
-Training loss - SQuAD 1.1
+## Training and Validation loss behaviors
 ![image](https://user-images.githubusercontent.com/46126394/195227369-8913b07d-93f0-4b71-8197-eaf18b83cfa4.png)
-Training loss - SQuAD 2.0
 ![image](https://user-images.githubusercontent.com/46126394/195227385-01bb5250-cc43-4606-baf2-873ff55c7e0e.png)
-Validation loss - SQuAD 1.1
 ![image](https://user-images.githubusercontent.com/46126394/195227399-008ac73e-2a94-4ab7-8132-c4d8c7c8f2aa.png)
-Validation loss - SQuAD 2.0
 ![image](https://user-images.githubusercontent.com/46126394/195227409-5fa6568f-cba9-4237-8ff6-2a3421f58773.png)
 
 
